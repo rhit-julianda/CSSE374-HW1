@@ -29,13 +29,21 @@ public class Cart {
 	 */
 	public Double calculateTotal() {
 		this.total = 0.0;
-		for(Item i: this.items.keySet()) {
+		for (Item i: this.items.keySet()) {
 			this.total += i.calculatePrice(this.items.get(i));
 		}
+		for (DiscountCode c: this.appliedCodes) {
+			this.total -= (this.total * c.getPercentage());
+		}
+		new Tax();
 		return total;
 	}
 	
 	public Response display() {
+		return null;
+	}
+	
+	public Response addItem() {
 		return null;
 	}
 }

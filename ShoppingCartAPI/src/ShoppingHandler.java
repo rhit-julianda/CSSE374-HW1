@@ -17,7 +17,10 @@ public class ShoppingHandler {
 		Cart targetCart = this.carts.get(req.getID());
 		if (req instanceof DisplayRequest) {
 			return targetCart.display();
-		} else {
+		} else if (req instanceof AddItemRequest) {
+			if
+			return targetCart.addItem();
+		} else
 			return null;
 		}
 	}

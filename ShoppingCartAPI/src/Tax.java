@@ -1,4 +1,4 @@
 
-public abstract class Tax {
-
+public interface Tax {
+	public Double calculateTax(Double price);
 }
