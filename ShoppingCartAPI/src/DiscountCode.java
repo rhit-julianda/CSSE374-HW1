@@ -14,17 +14,17 @@ public class DiscountCode {
 		this.requirements = reqs;
 	}
 	
-	public boolean checkValid(HashMap<Item, Integer> cartContents) {
+	public Response checkValid(HashMap<Item, Integer> cartContents) {
 		if(new Date().compareTo(expirationDate) > 0) {
-			return false;
+			return new MessageResponse("This discount code has expired.");
 		} else {
 			for (Item i : this.requirements.keySet()) {
 				if ((cartContents.get(i) == null) ||
 					(cartContents.get(i) < requirements.get(i))) {
-					return false;
+					return new CodeRequirementResponse(this.requirements);
 				}
 			}
-			return true;
+			return null;
 		}
 	}
 	

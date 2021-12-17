@@ -6,4 +6,8 @@ public class AddItemRequest extends Request {
 		this.userID = id;
 		this.item = item;
 	}
+	
+	public Item getItem() {
+		return this.item;
+	}
 }
